@@ -19,7 +19,7 @@ export const PostLookup = ({ title, image, createdAt, slug }: Props) => {
   }, []);
 
   return (
-    <Link href={`/posts/${slug}`}>
+    <Link href={`/posts/${slug}`} passHref>
       <article
         className="relative h-36 rounded-md px-3 cursor-pointer"
         style={{ backgroundImage: `url(${image})` }}
