@@ -8,6 +8,11 @@ export const allPostsQuery = gql`
       title
       slug
       content
+      createdAt
     }
   }
 `;
+
+export const getAllPosts = () => {
+  return graphcms.request(allPostsQuery);
+};
