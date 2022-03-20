@@ -31,7 +31,7 @@ const Home: NextPage<Props> = ({ posts }) => {
               <PostLookup
                 key={post.title}
                 title={post.title}
-                image={post.image || '/test.png'}
+                image={post.image || '/test.jpg'}
                 createdAt={post.createdAt}
                 slug={post.slug}
               />
