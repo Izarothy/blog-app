@@ -7,7 +7,6 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const Post = ({ post }: Props) => {
   const date = new Date(post.createdAt);
@@ -18,7 +17,7 @@ const Post = ({ post }: Props) => {
       <Head>
         <title>{post.title}</title>
       </Head>
-      <div className="min-h-screen  text-gray-800">
+      <div className="min-h-screen  text-gray-800 dark:text-gray-200 dark:bg-primary-dark">
         <header className="p-2">
           <div
             className="relative h-80 rounded-lg bg-cover bg-center w-full"
@@ -64,7 +63,7 @@ const Post = ({ post }: Props) => {
               );
             })}
         </main>
-        <footer className="bg-black text-gray-100 text-center py-4">
+        <footer className="bg-primary-dark dark:bg-gray-100 dark:text-primary-dark text-gray-100 text-center py-4">
           <h3>Thank you for reading</h3>
         </footer>
       </div>

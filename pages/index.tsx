@@ -1,6 +1,8 @@
 import { PostLookup } from 'components/PostLookup';
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
+import { userInfo } from 'os';
+import { useEffect } from 'react';
 import { getAllPosts } from 'utils/graphcms';
 import { Post } from 'utils/types';
 
@@ -23,19 +25,23 @@ const Home: NextPage<Props> = ({ posts }) => {
       <Head>
         <title>Blog App</title>
       </Head>
-      <main className="bg-zinc-800 min-h-screen text-white px-3 py-5">
-        <h1>Hello</h1>
-        <section className="flex flex-col gap-2">
-          {posts.map((post) => {
-            return (
-              <PostLookup
-                key={post.title}
-                title={post.title}
-                image={post.image || '/test.jpg'}
-                createdAt={post.createdAt}
-                slug={post.slug}
-              />
-            );
+      <main className="bg-primary-dark min-h-screen text-white px-3 py-5">
+        <h1 className="text-3xl text-center mb-6">Hi! </h1>
+        <h2 className="text-xl mb-4">Latest posts</h2>
+        <section className="flex flex-col items-center gap-4">
+          {posts.map((post, idx) => {
+            // Only show 3 posts
+            if (idx < 3) {
+              return (
+                <PostLookup
+                  key={post.title}
+                  title={post.title}
+                  image={post.image || '/test.jpg'}
+                  slug={post.slug}
+                  content={post.content}
+                />
+              );
+            }
           })}
         </section>
       </main>
