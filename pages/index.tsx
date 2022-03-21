@@ -1,8 +1,6 @@
 import { PostLookup } from 'components/PostLookup';
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
-import { userInfo } from 'os';
-import { useEffect } from 'react';
 import { getAllPosts } from 'utils/graphcms';
 import { Post } from 'utils/types';
 

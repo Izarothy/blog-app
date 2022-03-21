@@ -7,6 +7,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 
 import Head from 'next/head';
 import Link from 'next/link';
+import DarkModeButton from 'components/DarkModeButton';
 
 const Post = ({ post }: Props) => {
   const date = new Date(post.createdAt);
@@ -17,7 +18,7 @@ const Post = ({ post }: Props) => {
       <Head>
         <title>{post.title}</title>
       </Head>
-      <div className="min-h-screen  text-gray-800 dark:text-gray-200 dark:bg-primary-dark">
+      <div className="min-h-screen  text-gray-800 dark:text-gray-200 dark:bg-primary-dark ">
         <header className="p-2">
           <div
             className="relative h-80 rounded-lg bg-cover bg-center w-full"
@@ -41,6 +42,7 @@ const Post = ({ post }: Props) => {
                 </svg>
               </button>
             </Link>
+            <DarkModeButton />
             <span className="absolute pl-4 bottom-2 w-full">
               <h1 className="text-white [text-shadow:1px_1px_#000]  bottom-[10%] text-xl max-w-[70%] text-justify">
                 {post.title}
