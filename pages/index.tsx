@@ -32,11 +32,11 @@ const Home: NextPage<Props> = ({ posts }) => {
       <NavBar />
       <main className="dark:bg-primary-dark bg-gray-100 min-h-screen dark:text-white text-primary-dark px-3 py-5">
         <h1 className="text-3xl text-center mb-6">Hi! </h1>
-        <section className="lg:w-full mx-auto">
+        <section className="w-1/3 mx-auto">
           <h2 className="text-xl mb-4 lg:text-center text-center">
             Latest posts
           </h2>
-          <div className="grid place-items-center grid-rows-3 lg:grid-rows-5 gap-4">
+          <div className="grid place-items-center grid-rows-3 w-full lg:grid-rows-5 gap-4">
             {posts.reverse().map((post, idx) => {
               // Only show 3 posts
               if (idx < 5) {
@@ -45,7 +45,7 @@ const Home: NextPage<Props> = ({ posts }) => {
                     key={post.title}
                     content={post.content}
                     title={post.title}
-                    image={`https://picsum.photos/1200/108${idx}`}
+                    image={`/placeholder.jpg`}
                     slug={post.slug}
                     currentDate={formatDate(post.createdAt)}
                     author={post.author || 'Unknown'}

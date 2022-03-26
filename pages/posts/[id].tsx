@@ -32,8 +32,7 @@ const Post = ({ post }: Props) => {
           <div
             className="relative h-80 rounded-lg bg-cover bg-center w-full lg:w-1/2 lg:mx-auto"
             style={{
-              backgroundImage:
-                post.image || `url('https://picsum.photos/1920/1080')`,
+              backgroundImage: post.image || `url('/placeholder.jpg')`,
             }}
           >
             <Link href="/" passHref>
@@ -71,7 +70,10 @@ const Post = ({ post }: Props) => {
             // Text will essentially be only paragraphs so they are all split by newlines
             post.content.split('\n').map((line, idx) => {
               return (
-                <p className="font-tinos md:text-lg lg:px-[25vw]" key={idx}>
+                <p
+                  className="font-tinos sm:text-lg lg:px-[25vw] sm:px-8"
+                  key={idx}
+                >
                   {line}
                 </p>
               );
