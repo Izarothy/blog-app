@@ -21,7 +21,7 @@ const Post = ({ post }: Props) => {
       <div className="min-h-screen  text-gray-800 dark:text-gray-200 dark:bg-primary-dark ">
         <header className="p-2">
           <div
-            className="relative h-80 rounded-lg bg-cover bg-center w-full"
+            className="relative h-80 rounded-lg bg-cover bg-center w-full lg:w-1/2 lg:mx-auto"
             style={{
               backgroundImage:
                 post.image || `url('https://picsum.photos/1920/1080')`,
@@ -45,12 +45,12 @@ const Post = ({ post }: Props) => {
                 </svg>
               </button>
             </Link>
-            <DarkModeButton />
+            <DarkModeButton right={true} />
             <span className="absolute pl-4 bottom-2 w-full ">
               <h1 className="text-white [text-shadow:1px_1px_#000]  bottom-[10%] text-xl max-w-[70%] text-justify">
                 {post.title}
               </h1>
-              <span className="[text-shadow:1px_1px_#000] bottom-4 left-4 text-xs text-gray-400 dark:text-gray-100">
+              <span className="[text-shadow:1px_1px_#000] bottom-4 left-4 text-xs text-gray-200 dark:text-gray-100">
                 {creationDate} • {post.author || 'Unknown'}
               </span>
             </span>
@@ -62,13 +62,13 @@ const Post = ({ post }: Props) => {
             // Text will essentially be only paragraphs so they are all split by newlines
             post.content.split('\n').map((line, idx) => {
               return (
-                <p className="font-tinos" key={idx}>
+                <p className="font-tinos md:text-lg lg:px-[25vw]" key={idx}>
                   {line}
                 </p>
               );
             })}
         </main>
-        <footer className="bg-primary-dark dark:bg-gray-100 dark:text-primary-dark text-gray-100 text-center py-4">
+        <footer className="bg-primary-dark dark:bg-gray-100 dark:text-primary-dark text-gray-100 text-center py-4 lg:w-1/2 lg:mx-auto">
           <h3>Thank you for reading</h3>
         </footer>
       </div>

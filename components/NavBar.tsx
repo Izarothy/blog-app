@@ -4,13 +4,13 @@ import DarkModeButton from './DarkModeButton';
 
 export const NavBar = () => {
   return (
-    <nav className="dark:bg-primary-dark dark:text-gray-100 bg-gray-100 text-primary-dark p-3">
+    <nav className="dark:bg-primary-dark dark:text-gray-100 bg-gray-100 text-primary-dark p-3 md:px-12">
       <ul className="flex justify-between">
         <li className="cursor-pointer pt-2">
           <Link href="/">/</Link>
         </li>
         <li>
-          <DarkModeButton />
+          <DarkModeButton right={false} />
         </li>
       </ul>
     </nav>
