@@ -1,3 +1,4 @@
+import { NavBar } from 'components/NavBar';
 import { PostLookup } from 'components/PostLookup';
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
@@ -23,7 +24,8 @@ const Home: NextPage<Props> = ({ posts }) => {
       <Head>
         <title>Blog App</title>
       </Head>
-      <main className="bg-primary-dark min-h-screen text-white px-3 py-5">
+      <NavBar />
+      <main className="dark:bg-primary-dark bg-gray-100 min-h-screen dark:text-white text-primary-dark px-3 py-5">
         <h1 className="text-3xl text-center mb-6">Hi! </h1>
         <h2 className="text-xl mb-4">Latest posts</h2>
         <section className="flex flex-col items-center gap-4">
@@ -34,7 +36,7 @@ const Home: NextPage<Props> = ({ posts }) => {
                 <PostLookup
                   key={post.title}
                   title={post.title}
-                  image={post.image || '/test.jpg'}
+                  image={`https://picsum.photos/1080/108${idx}`}
                   slug={post.slug}
                   content={post.content}
                 />
