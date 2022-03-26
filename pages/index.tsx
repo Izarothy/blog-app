@@ -2,6 +2,7 @@ import { NavBar } from 'components/NavBar';
 import { PostLookup } from 'components/PostLookup';
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
+import formatDate from 'utils/formatDate';
 import { getAllPosts } from 'utils/graphcms';
 import { Post } from 'utils/types';
 
@@ -36,9 +37,10 @@ const Home: NextPage<Props> = ({ posts }) => {
                 <PostLookup
                   key={post.title}
                   title={post.title}
-                  image={`https://picsum.photos/1080/108${idx}`}
+                  image={`https://picsum.photos/1200/108${idx}`}
                   slug={post.slug}
-                  content={post.content}
+                  currentDate={formatDate(post.createdAt)}
+                  author={post.author || 'Unknown'}
                 />
               );
             }

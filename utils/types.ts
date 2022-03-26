@@ -5,4 +5,5 @@ export type Post = {
   slug: string;
   image?: string;
   createdAt: string;
+  author?: string;
 };
