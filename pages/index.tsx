@@ -30,7 +30,7 @@ const Home: NextPage<Props> = ({ posts }) => {
         <h1 className="text-3xl text-center mb-6">Hi! </h1>
         <h2 className="text-xl mb-4">Latest posts</h2>
         <section className="flex flex-col items-center gap-4">
-          {posts.map((post, idx) => {
+          {posts.reverse().map((post, idx) => {
             // Only show 3 posts
             if (idx < 3) {
               return (

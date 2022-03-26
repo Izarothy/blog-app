@@ -8,10 +8,10 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import DarkModeButton from 'components/DarkModeButton';
+import formatDate from 'utils/formatDate';
 
 const Post = ({ post }: Props) => {
-  const date = new Date(post.createdAt);
-  const creationDate = date.toDateString().slice(3, 15);
+  const creationDate = formatDate(post.createdAt);
 
   return (
     <>
@@ -22,7 +22,10 @@ const Post = ({ post }: Props) => {
         <header className="p-2">
           <div
             className="relative h-80 rounded-lg bg-cover bg-center w-full"
-            style={{ backgroundImage: `url("/test.jpg")` }}
+            style={{
+              backgroundImage:
+                post.image || `url('https://picsum.photos/1920/1080')`,
+            }}
           >
             <Link href="/" passHref>
               <button className="cursor-pointer block text-sm absolute top-0 text-white p-2">
@@ -43,12 +46,12 @@ const Post = ({ post }: Props) => {
               </button>
             </Link>
             <DarkModeButton />
-            <span className="absolute pl-4 bottom-2 w-full">
+            <span className="absolute pl-4 bottom-2 w-full ">
               <h1 className="text-white [text-shadow:1px_1px_#000]  bottom-[10%] text-xl max-w-[70%] text-justify">
                 {post.title}
               </h1>
-              <span className="[text-shadow:1px_1px_#000] bottom-4 left-4 text-xs text-gray-400">
-                {creationDate} • {'Unknown'}
+              <span className="[text-shadow:1px_1px_#000] bottom-4 left-4 text-xs text-gray-400 dark:text-gray-100">
+                {creationDate} • {post.author || 'Unknown'}
               </span>
             </span>
           </div>
