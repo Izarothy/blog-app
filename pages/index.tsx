@@ -1,3 +1,4 @@
+import { Footer } from 'components/Footer';
 import { NavBar } from 'components/NavBar';
 import { PostLookup } from 'components/PostLookup';
 import type { GetStaticProps, NextPage } from 'next';
@@ -28,12 +29,12 @@ const Home: NextPage<Props> = ({ posts }) => {
       <NavBar />
       <main className="dark:bg-primary-dark bg-gray-100 min-h-screen dark:text-white text-primary-dark px-3 py-5">
         <h1 className="text-3xl text-center mb-6">Hi! </h1>
-        <section className="w-2/3 mx-auto">
-          <h2 className="text-xl mb-4">Latest posts</h2>
-          <div className="flex flex-col items-center gap-4">
+        <section className="w-2/3 lg:w-full mx-auto">
+          <h2 className="text-xl mb-4 lg:text-center">Latest posts</h2>
+          <div className="grid place-items-center grid-rows-3 lg:grid-rows-5 gap-4">
             {posts.reverse().map((post, idx) => {
               // Only show 3 posts
-              if (idx < 3) {
+              if (idx < 5) {
                 return (
                   <PostLookup
                     key={post.title}
@@ -49,6 +50,7 @@ const Home: NextPage<Props> = ({ posts }) => {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };
