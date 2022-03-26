@@ -32,7 +32,7 @@ const Home: NextPage<Props> = ({ posts }) => {
       <NavBar />
       <main className="dark:bg-primary-dark bg-gray-100 min-h-screen dark:text-white text-primary-dark px-3 py-5">
         <h1 className="text-3xl text-center mb-6">Hi! </h1>
-        <section className="w-1/3 mx-auto">
+        <section className="lg:w-1/3 mx-auto">
           <h2 className="text-xl mb-4 lg:text-center text-center">
             Latest posts
           </h2>
@@ -55,8 +55,8 @@ const Home: NextPage<Props> = ({ posts }) => {
             })}
           </div>
         </section>
+        <Footer />
       </main>
-      <Footer />
     </div>
   );
 };
