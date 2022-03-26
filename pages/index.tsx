@@ -1,11 +1,13 @@
 import { Footer } from 'components/Footer';
 import { NavBar } from 'components/NavBar';
 import { PostLookup } from 'components/PostLookup';
+
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
+
 import formatDate from 'utils/formatDate';
 import { getAllPosts } from 'utils/graphcms';
-import { Post } from 'utils/types';
+import { PostT } from 'utils/types';
 
 export const getStaticProps: GetStaticProps = async () => {
   const { posts } = await getAllPosts();
@@ -17,10 +19,10 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 type Props = {
-  posts: Post[];
+  posts: PostT[];
 };
 
-const Home: NextPage<Props> = ({ posts }) => {
+export const Home: NextPage<Props> = ({ posts }) => {
   return (
     <div>
       <Head>
@@ -31,14 +33,13 @@ const Home: NextPage<Props> = ({ posts }) => {
       </Head>
       <NavBar />
       <main className="dark:bg-primary-dark bg-gray-100 min-h-screen dark:text-white text-primary-dark px-3 py-5">
-        <h1 className="text-3xl text-center mb-6">Hi! </h1>
+        <h1 className="text-3xl text-center mb-6">Hi!</h1>
         <section className="lg:w-1/3 mx-auto">
           <h2 className="text-xl mb-4 lg:text-center text-center">
             Latest posts
           </h2>
           <div className="grid place-items-center grid-rows-3 w-full lg:grid-rows-5 gap-4">
-            {posts.reverse().map((post, idx) => {
-              // Only show 3 posts
+            {posts?.reverse().map((post, idx) => {
               if (idx < 5) {
                 return (
                   <PostLookup

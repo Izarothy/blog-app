@@ -1,19 +1,20 @@
 import React from 'react';
 
-import changeTheme from 'utils/changeTheme';
+import changeTheme from '../utils/changeTheme';
 
 type Props = {
-  right: boolean;
+  right?: boolean;
 };
 
 const DarkModeButton = ({ right }: Props) => {
   return (
     <button
       onClick={changeTheme}
-      className={`rounded-xl p-2 dark:text-primary-dark ${
+      className={`rounded-xl p-2 dark:text-gray-100 flex gap-1 ${
         right && `absolute right-0`
       }`}
     >
+      Mode
       {/* Light SVG  */}
       <svg
         xmlns="http://www.w3.org/2000/svg"

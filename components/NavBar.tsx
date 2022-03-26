@@ -10,7 +10,7 @@ export const NavBar = () => {
           <Link href="/">/</Link>
         </li>
         <li>
-          <DarkModeButton right={false} />
+          <DarkModeButton />
         </li>
       </ul>
     </nav>
