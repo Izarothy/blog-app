@@ -1,11 +1,13 @@
-export default function changeTheme(theme: boolean) {
-  if (theme) {
-    localStorage.setItem('theme', 'dark');
-    document.documentElement.classList.add('dark');
+export default function changeTheme() {
+  const theme = localStorage.getItem('blogTheme');
+
+  if (theme === 'dark') {
+    localStorage.setItem('blogTheme', 'light');
+    document.documentElement.classList.remove('dark');
     return;
   }
 
-  // Will run if theme is false (light)
-  localStorage.setItem('theme', 'light');
-  document.documentElement.classList.remove('dark');
+  // Will run if current theme is false (light)
+  localStorage.setItem('blogTheme', 'dark');
+  document.documentElement.classList.add('dark');
 }

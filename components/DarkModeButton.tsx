@@ -1,22 +1,16 @@
-import { DarkModeContext } from 'pages/_app';
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 
 import changeTheme from 'utils/changeTheme';
 const DarkModeButton = () => {
-  const { theme, setTheme } = useContext(DarkModeContext);
-
   return (
     <button
-      onClick={() => {
-        setTheme(!theme);
-        changeTheme(theme);
-      }}
+      onClick={changeTheme}
       className="rounded-xl p-2 dark:text-primary-dark absolute right-0"
     >
       {/* Light SVG  */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6 block dark:hidden dark:text-gray-100"
+        className="h-6 w-6 block text-primary-dark dark:hidden "
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
