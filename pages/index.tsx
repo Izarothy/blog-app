@@ -25,6 +25,9 @@ const Home: NextPage<Props> = ({ posts }) => {
     <div>
       <Head>
         <title>Blog App</title>
+        <meta property="og:title" content={`Blog App`} />
+        <meta property="og:description" content={`CMS blog app`} />
+        <meta property="og:image" content={`https://picsum.photos/1920/1080`} />
       </Head>
       <NavBar />
       <main className="dark:bg-primary-dark bg-gray-100 min-h-screen dark:text-white text-primary-dark px-3 py-5">

@@ -17,6 +17,15 @@ const Post = ({ post }: Props) => {
     <>
       <Head>
         <title>{post.title}</title>
+        <meta property="og:title" content={post.title} />
+        <meta
+          property="og:description"
+          content={`${post.content.slice(0, 30)}...`}
+        />
+        <meta
+          property="og:image"
+          content={post.image || `https://picsum.photos/1920/1080`}
+        />
       </Head>
       <div className="min-h-screen  text-gray-800 dark:text-gray-200 dark:bg-primary-dark ">
         <header className="p-2">
