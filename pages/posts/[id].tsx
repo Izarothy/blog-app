@@ -2,7 +2,7 @@ import React from 'react';
 import { graphcms, allPostsQuery } from 'utils/graphcms';
 import { gql } from 'graphql-request';
 
-import { Post } from 'utils/types';
+import { PostT } from 'utils/types';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import Head from 'next/head';
@@ -22,10 +22,7 @@ const Post = ({ post }: Props) => {
           property="og:description"
           content={`${post.content.slice(0, 30)}...`}
         />
-        <meta
-          property="og:image"
-          content={post.image || `https://picsum.photos/1920/1080`}
-        />
+        <meta property="og:image" content={post.image || `/placeholder.jpg`} />
       </Head>
       <div className="min-h-screen  text-gray-800 dark:text-gray-200 dark:bg-primary-dark ">
         <header className="p-2">
@@ -34,6 +31,7 @@ const Post = ({ post }: Props) => {
             style={{
               backgroundImage: post.image || `url('/placeholder.jpg')`,
             }}
+            role={'postBackground'}
           >
             <Link href="/" passHref>
               <button className="cursor-pointer block text-sm absolute top-0 text-white p-2">
@@ -90,7 +88,7 @@ const Post = ({ post }: Props) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const { posts } = await graphcms.request(allPostsQuery);
 
-  const paths = posts.map((post: Post) => ({
+  const paths = posts.map((post: PostT) => ({
     params: {
       id: post.slug,
     },
@@ -126,7 +124,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 type Props = {
-  post: Post;
+  post: PostT;
 };
 
 export default Post;
