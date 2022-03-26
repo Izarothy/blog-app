@@ -8,6 +8,7 @@ type Props = {
   slug: string;
   currentDate: string;
   author: string;
+  content: string;
 };
 
 export const PostLookup = ({
@@ -16,16 +17,15 @@ export const PostLookup = ({
   slug,
   currentDate,
   author,
+  content,
 }: Props) => {
   return (
     <Link href={`/posts/${slug}`} passHref>
-      <article className="max-w-sm cursor-pointer flex w-full gap-3">
-        <div>
+      <article className="max-w-sm md:max-w-md cursor-pointer flex w-full gap-3 border-b pb-4 border-gray-500 dark:border-gray-100">
+        <div className="relative w-40 md:w-32">
           <Image
             src={image}
-            layout="fixed"
-            width="80"
-            height="70"
+            layout="fill"
             alt="Blog image"
             objectFit="cover"
             className="rounded-lg"
@@ -36,8 +36,9 @@ export const PostLookup = ({
           <h3 className="text-md dark:[text-shadow:2px_2px_#111] font-semibold">
             {title}
           </h3>
+          <p className="text-sm">{content.slice(0, 100)}...</p>
           <div className="flex justify-between text-gray-500 dark:text-gray-300 text-[0.6rem] w-4/5">
-            <span className="flex gap-1">
+            <span className="flex items-center gap-1">
               {/* Calendar SVG  */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +56,7 @@ export const PostLookup = ({
               </svg>
               <h4>{currentDate}</h4>
             </span>
-            <span className="flex gap-1">
+            <span className="flex items-center gap-1">
               {/* User SVG  */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
