@@ -40,7 +40,6 @@ export const Home: NextPage<Props> = ({ posts }) => {
           </h2>
           <div className="grid place-items-center grid-rows-3 w-full lg:grid-rows-5 gap-4">
             {posts?.reverse().map((post, idx) => {
-              // Only show 3 posts
               if (idx < 5) {
                 return (
                   <PostLookup
