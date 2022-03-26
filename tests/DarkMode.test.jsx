@@ -8,9 +8,6 @@ describe('Home', () => {
     const heading = screen.getByText('Hi!');
     expect(heading).toBeInTheDocument;
   });
-});
-
-describe('Dark Mode', () => {
   it('checks that the user can change the theme', () => {
     render(<Home />);
 
